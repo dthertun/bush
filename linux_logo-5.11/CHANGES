@@ -1,0 +1,998 @@
+8 JULY 1997
++ Came up with the Idea
++ Converted the logo.xpm file to ANSI using ppm2ansi and xv
++ Fixed up the picture with THEDRAW under DOSEMU 0.66.7
++ Combined into a C program using jed.
+
+9 JULY 1997
++ Figured out the tricky proc stuff (very inelegant)
++ Released version 0.1
+
+RELEASE 0.1
+
+10 JULY 1997
++ Fixed it so it looks better on a white background (standard rxvt or xterm)
++ Released version 0.2
++ Added documentation on how to add a "penguin port" to telnet into
+
+RELEASE 0.2
+
+14 JULY 1997
++ Return for weekend to find lots of feedback on this program.
++ Started adding updates.
++ Cleaned up output routines, added SMP and Atari support, and cleaned
+  up the code in general.
++ Added a command line options. -v (version) -h (help) and -n (turn off
+  periods in the output)
++ Released version 0.4 to my website [0.3 was a never released minor bugfix]
+
+RELEASE 0.4
+
+15 JULY 1997
++ Start on version 0.5
++ Really start modularizing.  Decide to make it completely platform
+  independent.
+
+RELEASE 0.5
+
+16 JULY 1997
++ Finished modularization
++ Added -o option to print with offset
++ Finished cross-platform support (with a lot of #ifdef s)
++ Added IRIX and Default UNIX outputs
++ Added -s option to skip bogomips check on non-Linux OS's
++ Released version 0.6
+
+RELEASE 0.6
+
+18 JULY 1997
++ Got improved Atari m68k Code from Christian Marillat
++ Removed extraneous ^[ combination from the ansi .h files
+  (so a cat of the header file shows the picture)
++ Released version 1.0 at sunsite and my site (no there is no 0.7-0.9
+  ... the improvements were so drastic I thought it deserved a full
+  version number).
+
+RELEASE 1.0
+
+25 JULY 1997
++ Fixed some typos in the README (thanks to Esperandi)
++ Ran doc files through ispell .. i didn't realize it was that bad ;)
++ Fixed handling of the -o option when a number doesn't follow
+  (before resulted in seg-fault). (thanks to Adam Lackorzynski) 
++ Re-released as version 1.01
+
+RELEASE 1.01
+
+4 AUGUST 1997
++ Worked some more on the -o problem (again many thanks to Adam Lackorzynski)
+  should not give any more problems.
+
+5 AUGUST 1997
++ Added a TODO file
++ Added an exit() call to the help section, and removed some return 1; s
++ Fixed a minor bug with SGI getcpuinfo.
++ Put version 1.02 at my site (for some reason I forgot to put 1.01 there)  
+
+RELEASE 1.02
+
+6 FEBRUARY 1998
++ A few extremely minor bugs/typos fixed over the past months.
++ Added better support for K6-chips [I recently upgraded to one ;)] and
+  the newer kernels.
++ Package up version 1.04 and release for test to UM-LUG
+
+RELEASE 1.04
+
+11 FEBRUARY 1998
++ Added "plain ascii" penguin and -a option to display it.
+  [thanks to <nelson _at_ media.mit.edu>] for getting me started on this one.
++ Fixed URL in the -h option
++ Make appropriate updates
++ Added OpenLinux instructions to Readme [thanks to <heaney _at_ zombie.ncsc.mil>]
++ Released 1.05
+
+RELEASE 1.05
+
+12 FEBRUARY 1998
++ Found bug in 1.05 [% signs not work well in /etc/issue.net  ... they are
+  escaped... ugh] so released 1.06
++ UGH! Uploaded 1.06 as ASCII instead of BIN at sunsite by mistake.  Changed
+  version of package to 1.07 but leave everything as 1.06 ;)  yes I'm lazy
+  
+19 FEBRUARY 1998
++ Added Cyrix 6x86 support [thanks to <adam _at_ princeton.edu>]
++ Changed to read the vendor_id to report vendor.  Idea also thanks to 
+  <adam _at_ princeton.edu>
+  
+13 MARCH 1998
++ Added minimal AIX port [thanks to Thomas Grewe]
++ Added incredible Banner support!  "linux_logo -banner"
+  Much thanks to Albert Lai <aylai _at_ unixg.ubc.ca>
++ Also added "-rX" option to change the character in banner, and 
+  "-w Num" which changes width [all under banner]  
++ Made old linux_logo look "linux_logo -classic"
++ Modularized the getsysinfo.c files.  Trying to follow all the #ifdef
+  statements was getting confusing.
++ Included a nice "further info" file from Tony Nugent <T.Nugent _at_ sct.gu.edu.au>
++ Bunch of other stuff to get ready for release
++ Released version 2.00
+
+RELEASE 2.0
+
+16 APRIL 1998
++ Finally had time to work on things again.
++ Thanks to Joerg Berg <joerg _at_ joberg.snafu.de> linux-alpha support should
+  work.
++ I also rearranged the "sysinfo.c" file.  It now relies on pre-processor
+  magic, but simplified the Makefile a lot.
++ Zipped up version 2.0.1
+
+RELEASE 2.01
+
+13 May 1998
++ Fixed it so that command line parameters were passed to the relevant
+  modules.  This had been broken for some time; thanks to
+  <mengmeng _at_ earthling.net> for pointing this out.
++ The boot-logo flamewar has resumed on linux-kernel, so I think I will
+  zip up and get 2.0.2 ready to announce....
+  
+27 May 1998
++ Finally released 2.0.2.  Posted announcements to freshmeat.net and c.o.l.a.
+
+RELEASE 2.02
+
+28 May 1998
++ Got a lot of feedback due to the announcement on freshmeat.net.
++ Added -f option to clear screen.. thanks to Sean Kelly <smkelly _at_ zombie.org>
+  for the suggestion.
++ Fixed a typo in sysinfo_{default,aix}.c thanks to zap <zap _at_ arosnet.se>
++ Added a section to the README about having fun with the -R option
++ Increased the size of some buffers so that long cpu names [especially
+  Pentium II ones] don't overflow.  [Thanks to Caleb Epstein
+  <epstein_caleb_unix _at_ jpmorgan.com> and Steve <steve _at_ steve.paradise.net.nz> 
+  for reporting this problem].
++ Changed the 'penguin_port' in the README to 54321.  Thanks to 
+  David Nedrow <dnedrow _at_ usa.net> for letting me know that port 1234
+  has a reserved meaning and that a higher numbered port would be better.
++ Added Linux-Sparc support with the help of Raymond Wu <rwu _at_ ml.com>
+
+1 June 1998
++ Added better BogoMips reporting for Sparc64 [thanks to "Eddie C. Dost"
+  <ecd _at_ skynet.be>]
+
+3 June 1998
++ Fixed typo in sysinfo.c thanks to Rod Begbie <rod _at_ begbie.com>
+
+4 June 1998
++ Fixed problem where if there was no vendor it would include extraneous
+  space in the sysinfo ouput.  Thanks to report from Mark Lundeberg
+  <aa026 _at_ pgfn.bc.ca>
++ added contrib directory for possible future logos
++ improved AIX support thanks to Jochen Stein <jst _at_ writeme.com>
+
+18 June 1998
++ Added -k switch to enable changing of background shape independently of
+  foreground.  Thanks to Alexandre Aufrere <alexandre.aufrere _at_ bigfoot.com>
++ Fixed a bug on showing MMX pentiums with 2.0.34?
+
+9 July 1998
++ Someone reported 2.03 to freshmeat although it wasn't quite an official
+  "Announce to the world" release.  So I got to working on this a bit.
++ Made a patch to allow adding the linux_logo [in color] to the linux kernel.
+  I think the logo should remain user_space, but people kept whining how ugly
+  the text logos were with fbcon.  Oddly, I got no response for my patch.
+  None at all.  It can be obtained at 
+  http://www.ee.umd.edu/~weave/color-vga-linux-logo.patch
+  And is against 2.1.108 with some of Geert's fbcon fixes.
++ Messed with the directory structure some more, moving the "Samples" to the
+  ./samples directory.
++ Restructured source to use global variables instead of parameter passing.
+  Made code much easier to follow and smaller.
++ Now default behavior is customizable by editing the "defaults.h" file.
++ Added the -l and -g switches to disable sysinfo and logo respectively.
++ Fixed up the README file a lot.
++ Packed up 2.05 and released it.
+
+RELEASE 2.05
+
+10 July 1998
++ Improved support for K6 on 2.0.34 so it actually works now.
++ Added support for Centaur and "Transmeta" ;) Chips.
+  Note... The transmeta thing is a joke.  I have no clue if they are
+  making Intel-type chips.
++ Packaged up a "2.05a" version.
+
+13 July 1998
++ Fixed a bug where the -k and -x options didn't work.  UGH.  Thanks to my
+  friend John, at whose house I figured out the problem.
++ Fixed it so it displays non-cpuid [ <486] chips sort of right under
+  2.1.x series kernels.  Need to test this on 2.0.x series kernels to see
+  if I broke anything....
++ Packed up and released as "2.05b"
++ Added -u uptime option.  Suggested by many people, including 
+  David Christensson <david.christensson _at_ swipnet.se>,
+  Allan Joergensen <dw _at_ null.dk>, and my friend John C. <clemej _at_ rpi.edu>
+  ** NOTE ** involved changes to many of the architecture specific files.
+  PLEASE TEST AND REPORT ANY BUGS.
++ Made it so the -ascii switch really doesn't display any ESC characters.
++ Removed a lot of redundant code.
++ Updated CHANGES and TODO and BUGS files.
++ Will release "2.06" on my web-site temporarily.
+
+RELEASE 2.06
+
+14 July 1998
++ Got everything ready for the 2.07 release.  Trying not to forget anything
+  [I always do anyway].
+
+RELEASE 2.07
+
+29 July 1998
++ Finally got around to uploading the newest version to sunsite and reporting
+  it at freshmeat. 
++ Had forgotten to take the "cpuinfo" test file out.  UGH.
++ Added a fix for PentiumII's on linux 2.0.x [with cpuinfo sent by
+  <xanni _at_ xanadu.net>.  I wish I had access to more machines to test this on;
+  fixing one always risks breaking another.  If only I kept all those
+  /proc/cpuinfo's people sent me and had an automated parser... much more
+  trouble than it'd be worth.  Oh well.
+  
+31 July 1998
++ Added preliminary PowerPC support thanks to a /proc/cpuinfo sent in by
+  Beecher Greenman <rbg6038 _at_ ritvax.isc.rit.edu>
++ Fixed a centering bug in banner mode that had been bothering me for a while.
+  A "+4" should have been a "+2"
++ Re-changed that to "+3", after much trial and error, deciding it was the 
+  value that made odd-sized strings come out the best in banner mode.
++ Went through sysinfo_*.c, updating the files, making sure they used BUFSIZ
+  and making sure uninitialized strings won't give garbage on the wrong
+  architecture.
+
+13 August 1998
++ Don't really have time to work on linux_logo, but since everyone keeps
+  sending me e-mail about it, why not ;)
++ Fixed K6 printing on 2.0.36p5 [Ugh, why are they always changing this].
+  Actually it was reported this kernel causes 'linux_logo -a' to print blank
+  spaces for ever.  This is because one of the sysinfo lines was >80, so the
+  centering code ended up doing a loop to a negative number [that wrapped to
+  2^31], causing lots of bad effects.  Thanks to Nate Godin <nate _at_ WPI.EDU> 
+  for the report.
++ Added information to the README for adding linux_logo to SUSE linux systems.
+  Thanks to Rodolfo Pilas <rodolfo _at_ linux.org.uy>.
+  
+1 September 1998
++ Back at school.  Trying to merge stuff up the best I can.
++ Integrated [with some changes] a patch sent by Aleksey Makarov
+  <makarov _at_ iitam.omsk.net.ru>.  This changed the command-line parsing
+  to the get_opt() command, plus added the -t command line option
+  to print arbitrary text.
++ Shortened the -ascii -banner and -classic commands to -a,-b, and -c.
+  The old ones still work, but this is more "correct".  I will probably
+  add --ascii --banner and --classic at some point.
++ Updates the -t option to work with classic mode, substantially
+  re-structuring the classic mode code.  
++ Alexander Klink <ak _at_ wireworm.com> sent me a cool picture of linux_logo
+  on a vt102.  See the linux_logo page [www.ee.umd.edu/~weave/vmwprod]
+  for a copy of the picture.
++ Found out that there is a debian package of linux_logo, and it even
+  has its own maintainer, Steve Kostecke <steve _at_ kostecke.net>.
+  Anyway he sent in some patches, including a man page and some ppc
+  fixes, so I merged them in as well.
+  
+5 September 1998
++ Fixed it so the -f and -g options work together [thanks to Gabriel Grundin 
+  <gabbe _at_ linux.nu> for this one.
++ Kernel 2.1.120 messed up /proc/cpuinfo once again.  Work-around added.
+  Thanks to adam _at_ cc934578-a.ewndsr1.nj.home.com for the help.
+  
+11 September 1998
++ After numerous reports of linux_logo being broken for > 2.1.120 I 
+  released 2.10
+
+RELEASE 2.10
+
+13 September 1998
++ Fixed it so K6-2 machines look ok [at least on 2.0.35].
+
+25 September 1998
++ Started integrating some info that Alex Buell
+  <alex.buell _at_ tahallah.demon.co.uk> kindly provided into the /proc/cpuinfo
+  parsing code.
+
+2 October 1998
++ After awful week of exams, decided to work on linux_logo a bit ;)
++ Added a new "-x" option that uses a new character '@' in the
+  banner.h file to indicate characters that can be dropped in order
+  to get a "narrower" logo.  This was a problem with some people where
+  the issue.net file being 80chars caused problems.. hopefully this fixes
+  that.
++ Added "-y" loadaverage support.  Also re-modularized the banner output
+  code.  Thanks to Anders Rundegren <anders _at_ rundegren.com> for sending the
+  patch my way.
++ Packed up 2.11.  Won't announce to the world until I do a few beta-tests
+  first.
++ Realized using '@' as the character above screwed up the ascii output.
+  Changed it to `
++ Found another mistake where I forgot to add ` s to ascii_banner.h
+
+30 October 1998
++ Have been busy busy busy busy doing other stuff.  Finally had time to
+  work on linux_logo and try to get back to the people who had sent me
+  stuff the last month.
++ Added an "-e" option.  This makes it easier for me to check problems
+  with other people's /proc/cpuinfo files that they send me.  It can also
+  be used, I suppose, to trick linux_logo into thinking you have a better
+  computer ;)
++ Tested the new version with some of the assorted cpuinfo files 
+  Alex Buell sent me.
++ Michael Somos <somos _at_ grail.cba.csuohio.edu> was suggesting I remove the
+  Escape character from my C code.  I disagreed...
++ Someone announced linux_logo-2.11 long before I thought it was ready
+  to announce.  Please people, let me do the announcing....
++ Peter Magnusson <iocc _at_ home.se> let me know that using "`" for a special
+  character messes up the '-c' output.  Changed it to be "%".  Hopefully
+  this will keep other problems from happening.
++ Audited all of the non-intel architectures.  Cleaned up and fixed a lot.
+  Please let me know if anything else needs fixed.
++ Bundled up 2.12 for release.  Hope I don't make any mistakes...
+
+8 November 1998
++ Added support for older 1.2.x kernels, thanks to Rusty Haddock 
+  <rusty _at_ fe2o3.lonestar.org>
++ Added code to print the MHz if given by the new tsc code in kernels
+  >2.1.127
++ Actually finally release 2.12
+
+RELEASE 2.12
+
+5 December 1998
++ Idea from Juhapekka Tolvanen <juhtolv _at_ silmu.st.jyu.fi> to totally
+  re-write sysinfo stuff.  Will work on over break.
++ Also added sample scripts from him to contrib directory.
++ Pending re-write of entire sub-system, to break compatibility?
+  Linux_logo 3.0?
+  
+9 January 1999
++ Ugly snowy and icy weather has trapped me at home, giving me time for the
+  re-write.
++ Rewrote much of linux_logo to use a new "Format" engine.  The old behavior
+  is now a compatibility layer over the new code.
++ See the README on how to use the new -F option.
++ It's a big enough change to move the major number to 3.0.
++ Tested all the intel cpuinfo's I have.  Now to see what I can do about
+  the other architectures.
++ Overhauled the documentation.
++ To paraphrase Alan Cox and TMBG:
+  o/~ metalab.unc.edu was sunsite.unc.edu, 
+      now it's metalab.unc.edu not sunsite.unc.edu
+      So if you had a file at sunsite.unc.edu
+      It'll be waiting at metalab o/~
++ Pressing Projects: add gnu-configure scripts and update the man page.
+  Unfortunately I am unsure how to go about either of those.
++ Added a PowerPC SMP patch from Ryan Nielsen <ran _at_ krazynet.com>
+
+10 January 1999
++ Tried to fix things up for a beta release to freshmeat tomorrow
++ Went through bringing up all non-intel targets to code.
++ Added Megahertz printing for Alpha chips
+
+25 March 1999
++ Finally had time to work on linux_logo again.  School has just been tough.
+  This is my spring break so I grabbed some time to try to get beta2 and 
+  eventually 3.00 stable out the door.
++ Thanks to Christian T. Steigies <cts _at_ ap031.experimentalphysik.uni-kiel.de>
+  for sending in a patch fixing m68k and making sure it works on Amiga.
+
+26 March 1999
++ Implemented MIPS [decstation and SGI indy]
++ Got intel up to par.  Modularized it a bit.  Sorta detects K6-3's and
+  all the various pentium versions right as far as I can tell.
++ Thanks to Greg Smith <mke2fs _at_ adirondack-park.net> for sending a patch
+  to fix pentium2 detection under 2.0.x.
++ Thanks to "Evert Meulie esq." <evert _at_ royal.net> for Dutch number support.
++ tim <theaney _at_ toadmail.toad.net> sent in some fixes for the README
++ Fixed the MHz to fudge a bit so 400Mhz chips are reported as that and
+  not as 399Mhz or 401Mhz as /proc/cpuinfo might think they are.
++ Added the gpl COPYING file, since I've always said this was gpl'd but never
+  included the license with it.
++ Tweaked SPARC and ALPHA a bit.. this version passes all of my sample proc
+  files.. hopefully it will work just fine...
++ Pack it up and release to freshmeat.... here comes 3.0b2
+
+RELEASE 3.0b2
+
+2 April 1999
++ Not many bug reports at all.. gearing up for a 3.0 release later today.
++ Tried in the past week to get a GNU autoconf configure script working...
+  I did.. but the extra overhead [doubling the size of the archive] to just
+  check for gcc/cc or architecture isn't worth it.  The architecture 
+  detection code would have been just as much of a kludge as the current
+  sysinfo.c, and I don't have all the machines to test it on.  So for now
+  at least I will stick with old-fashioned makefiles.
++ Released 3.0 to freshmeat and metalab.
+
+RELEASE 3.0
+
+6 April 1999
++ This release has gone a lot smoother than previous releases.  Very few
+  actual bugs noted this time.
++ Thanks to Nate Godin <nate _at_ graymalkin.res.wpi.net> for a K6-2 fix.
++ Fixed some problems in the README.  Thanks to Brandon Griffith
+  <project7 _at_ qx.net> for a RedHat instructions fix.
++ Ran a "tr -d '\r'" on the README to remove extraneous ^M characters.
+  These shouldn't be needed [why were they even there at all?  I don't
+  think I ever edited linux_logo under DOS] and were 
+  causing <iain _at_ monitormedia.co.uk> some problems when viewing the logs
+  using less.
+  
+22 June 1999
++ Got a K6-2 350 the other day, so I guess I should finally publish a 3.01
+  that fixes the K6-2 Problem.  The K6-2 is nice, even though my motherboard
+  [A wonderful PA-2007] can only drive it at 337.5Mhz [75x4.5].  Had to solder
+  a resistor to a jumper to get the right voltage, but it works like a charm.
++ Revise the README somewhat.  I have a Redhat6.0 box at work so I can test
+  out that myself now.
++ Add support for Pentium III for older kernels that don't realize it is
+  a pentium III.
++ Added French support (Alexandre Blanchette <blanalex _at_ netscape.net>)
++ Added Italian support (Davide Melan <davidemelan _at_ tin.it>)  See his page
+  http://davidemelan.freeweb.org for an ENTIRELY Italian linux_logo.  Pretty
+  neat.
++ Changed the giant mass of global variables to a structure whose pointer
+  is passed around.  Hoped this would make the code more modular, but I 
+  fear it makes it just 1k bigger and more complicated.
++ Added -d option in case you want to disable linux_logo from "fixing up"
+  the output.  IE, you really want it to say AMD K6(tm) w Multimedia Extensions
+  or whatever your /proc/cpuinfo really says.  It also skips the Megahertz
+  fudging.  (Original idea from an e-mail exchange with Mengmeng Zhang
+  <mengmeng _at_ cs.utexas.edu>)
++ Ahhhhh it's late.  I have tested as much as I can, and think I have 3.01
+  ready to go out the door.  Hopefully I don't have a common error, as 
+  usually happens.  Off to announce at freshmeat tomorrow.
+
+23 June 1999
++ Made some minor touch-ups, and released version 3.01
+
+RELEASE 3.01
+
+8 July 1999
++ Oops.  Left out which file to fix to get Redhat printing stuff.  It is
+  /etc/rc.d/rc.local.  Thanks to James Punteney <jamesp _at_ mmgco.com>
+  for finding this.
+
+31 August 1999
++ The 3.x series has been a nice one, with few problems.  Recently a few
+  problems have cropped up, and since this is the last day before
+  classes begin, I figured I should work on them.
++ Also, thanks to the "Linux Mandrake" distribution.  They have linux_logo
+  installed by default... and apparently debian does too.
++ Fixed a bug with reporting K6-3's on 2.0.x kernels.  Thanks to
+  Steve Kostecke <steve _at_ kostecke.net>.
++ Fixed a bug while displaying K5 info.  Thanks to sbstone _at_ ntcnet.com
++ Added support for SMP alpha ev6.  Thanks goes to 
+  testdrive.compaq.com
++ There's grumbling on linux-kernel about "cleaning up cpuinfo namespace"
+  in 2.3.x kernels.  Won't that be fun.
+  
+1 October 1999
++ Ugh!!! This semester at school has been a lot of work.  I got side-tracked
+  and didn't release linux_logo-3.02 yet.. I'll do that now. 
++ I released a patch to clean up /proc/cpuinfo in the linux kernel.. it met
+  much hatred and flamage ;)  so I guess it won't be in the kernel.  Also,
+  Linus ignored the e-mail.
++ Linux_logo was mentioned in passing in Linux Journal... and in a flame on
+  linux-kernel... so I must be doing something right ;)
++ Verified it worked on glibc-2.1.2  [Long story.. but in getting
+  Iris Performer for Linux to work I ended up updating my slackware box
+  with many new libraries]
++ I am sure once I release this on freshmeat my mailbox will fill with more
+  bugs, so stay tuned....
+
+7 January 2000
++ Well, finally have some time for linux_logo again.  The semester of school
+  was crazy, but after finals and a trip to Mont Tremblant, Canada, things
+  have calmed down a bit.
++ Fix things for Athalon support.  Nope, I don't have one yet [I wish].
+  Thanks to Dieter Nützel <dieter.nuetzel _at_ myokay.net>
++ Look at merging some of the debian stuff.
++ It's good to know that linux_logo is Y2K compliant, even if the .lsm
+  file format doesn't seem to be.
++ Added a named-pipe example to ./contrib/scripts from Jörg Ziefle 
+
+11 January 2000
++ Made two new directories, "classic_logos" and "banner_logos" and put all of
+  the various contributed logos into them.  This should make it a bit easier
+  for people to browse and pick which ones they want compiled in.
++ Upload and release
+
+12 January 2000
++ Of course I manage to spell Athlon wrong.  Thanks to alp _at_ unistat.com
+
+13 January 2000
++ Ooops.  More people finding my Athlon problem.  Better release 3.04
++ One month left till my birthday.... plenty of time left to send me 
+  a present ;)
+
+RELEASE 3.04
+
+31 January 2000
++ Fix y2k bug with the LSM and hope metalab accepts it...
+
+29 February 2000
++ Added a slackware logo
++ Upped version # to 3.05, just to be consistent, even though I haven't made
+  enough changes to constitute a full release...
+
+RELEASE 3.05
+
+11 June 2000
++ I've been very busy.  With schoolwork and everything.  Back in February
+  I started a massive re-design, but had to stop.  Now I have some time
+  again.
++ I am stuck in Lowell, Massachusetts, with only my 486 laptop, so I thought
+  I'd do some linux_logo developing while not playing civ2 on my friend's
+  machine.
++ Tore out a lot of old "compatibility" code that I hope not many people used.
+  This includes the turn-off periods, and replace background/foreground
+  character code.  This makes the code base cleaner, smaller, and makes it
+  much easier to implement arbitrary/random logo generation, which is my
+  eventual goal.
+
+29 July 2000
++ Believe it or not, I've been working on this off an on the past 2 months.
++ malloc and pointers are your friends!  AHHHH SEGFAULT SEGFAULT SEGFAULT
+  Yes, that's what the past few days of linux_logo development have been
+  like ;)
++ I got logo file loading/parsing done a few weeks ago.  Today I got 
+  ascii/banner/classic logos to all use the same draw_logo function! 
+  There's a lot of abstraction, struct passing, pointers, malloc, and 
+  even a linked list!  I can't believe it works.  And to think this just
+  started out with a bunch of printf's of hard-coded arrays of chars.
+
+4 August 2000
++ Finally got all of the new logo stuff done and working
++ I have a nice K6-2+ to test things on now....
+
+6 August 2000
++ Verified all the cpuinfo files I have work, added ARM support and added
+  crusoe and improved Athlon support.
++ Re-write most of the documentation
++ Release 3.9b1 to Freshmeat hopefully.
+
+RELEASE 3.9b1
+
+11 February 2001
++ Started the big sysinfo-rewrite I have been meaning to work on.
++ Worked out the libsysinfo interface.  Should I spin it off as a separate
+  project?
++ Final Fantasy 8 intervened
+
+13 February 2001
++ Gave up on the idea of a special birthday release
+
+19 February 2001
++ Started messing with some self-generating Makefiles
++ Got sysinfo_ix86 sort of auto-detecting and working
+
+20 February 2001
++ Fix all occurances of e-mail and web-page to my hopefully permanent
+  "vince _at_ deater.net" address.
+
+23 February 2001
++ Wrote "ll" linux_logo in assembly language.  Added in the ll_asm
+  directory.
+
+24 February 2001
++ Finished x86 support to work on my machine
+
+3 March 2001
++ Finished x86 support to work on all cpuinfo's in my collection
++ Changed so reports GHz if over 1000Mhz.
++ Finished updating Alpha.
++ Finished updating ARM.
++ Finished updating m68k
++ Finished updating mips
+
+4 March 2001
++ Finished updating PPC
++ Finished updating Sparc
++ Started a libsysinfo specific CHANGES and README file
++ From now on all libsysinfo related updates will be reported
+  in the ./libsysinfo/CHANGELOG file.
++ Merged in some ascii logos and readme updates from 
+  Javier Fernandez-Sanguino Peña <jfs _at_ computer.org>
++ Looked into merging in i18n patch.  Sill a bit wary of it.
+
+5 March 2001
++ Release 3.9b2 to servers.  Hoepfully can release 4.0
+  after a normal bugfixing period.
+
+RELEASE 3.9b2
+
+16 March 2001
++ Fix GHz output to show 2 decimal points at least.  This is because
+  I found on the net some clandestine SMP-Athlon /proc/cpuinfo files.
++ Added preliminary i18n [that is, internationalization] support.
+  The first translation was a poorly-done German one [the only
+  language besides English I am somewhat understandable in].
+
+3 April 2001
++ Add a "make logos-all" Makefile option.  Fun to use with the 
+  "linux_logo -L random" option ;)
++ Included debian and redhat banner logos from
+  Phillip Jackson <pjacklsu _at_ bellsouth.net>
++ Thanks to Martin Bayer <mbayer _at_ zedat.fu-berlin.de> for the following
+  changes:  new "make install", compressed man-page.
++ Split off a "USAGE" file to make the README a bit less cluttered.
+
+24 April 2001
++ Finally got around to releasing 3.9b3 on freshmeat.  600 downloads
+
+RELEASE 3.9b3
+
+30 April 2001
++ Touch up the redhat and debian banner logos, from
+  Phillip Jackson <pjacklsu _at_ bellsouth.net>
++ Still amazed no i18n fixes have been sent in yet.  
+
+7 June 2001
++ Had many requests for a classic logo w/o periods.  Thanks to
+  Marc D. Williams <marcdw _at_ charter.net> for sending me one.  It's
+  included with the logos now.  See the FAQ for how to include it.
++ Updated Spanish .po file from Javier Fernández-Sanguino Peña
+  <jfs _at_ computer.org>  
++ Steve Kostecke <steve _at_ debian.org> fixed up the makefiles and fixed
+  a i18n compilation problem.
++ To further the cause of i18n I addad a "#P" option for custom logos
+  that will give either a singular or plural form of the word "Processor"
++ Released 3.9b4
+  
+RELEASE 3.9b4
+  
+16 October 2001
++ Fix GHz printing for fast chips
++ Add support for ~/.linux_logo and /etc/linux_logo.conf files.
+  I did this by a brutal hack of getopt().  See the README for info
++ Released 3.9b5.  Was going to release 4.0, but the getopt hack
+  seems a bit too chancy
+
+RELEASE 3.9b5
+
+22 October 2001
++ Try to free() the stuff I malloc().  I have been lazy because
+  typically linux_logo doesn't stay resident so it doesn't make
+  much difference.
++ Some sysinfo fixups.  See the changelog in ./libsysinfo
+
+25 October 2001
++ New fr.po translation from sebastien.oustric <sebastien.oustric _at_ laposte.net>
++ This release is taking a bit longer to get out than I thought.
+
+28 October 2001
++ MUST...RELEASE...BEFORE...CIVIII...COMES...OUT
++ Add "-i" option to ignore the new config files
++ Fixed some cases where an invalid file name would cause segfault
++ Update documentation
+
+4 February 2002
++ Add mandrake logos from their rpm, patch from Sitsofe Wheeler
+  <sits _at_ sucs.swan.ac.uk>
+
+5 February 2002
++ Add change to print mem > 1000 MB in GB.  Have no way to test this 
+  though... I shouldn't be making changes like this in b5, I know, but
+  95% of people shouldn't be affected by this.
+
+11 February 2002
++ Cleaning up the documentation.  After 2 years 4.0 will finally be ready.
+  Shooting for a 13 February special "birthday" release.
+
+RELEASE 4.0
+
+14 February 2002
++ Release quick 4.01 version to fix machines with more than 2 GB of RAM
+  on intel (although, still anything more than 4GB will need special code).
+
+RELEASE 4.01
+
+11 March 2002
++ Some i18n fixes, and Polish translation, thanks to Patryk ciborek
+  <scibi _at_ inetia.pl>
++ Updated to a newer spec file in the contrib directory.  Thanks to
+  Ford Prefect <weed _at_ bucket.pp.ualr.edu>
++ Contributed "gnu-linux" logo from Torsten Stremlau <torsten _at_ stremlau.de>
+  Maybe now RMS will run linux_logo ;)
++ New version of the "ll" assembly-language linux_logo included  
+
+RELEASE 4.02
+
+11 July 2002
++ linux_logo is 5 years old!!!
+
+14 July 2002
++ Updated the documentation a bit
++ Fix that "-L list" was reporting classic/banner backwards!
+  Thanks to Steve Kostecke <steve _at_ debian.org>
++ Added "-k" option that disables centering of system info
+
+RELEASE 4.03
+
+19 July 2002
++ Had released 4.03
++ Update USAGE to reflect redhat 7.x series
+
+RELEASE 4.04
+
+27 August 2002
++ Have to release version 4.05 because of a segfault when
+  HOME not set (can be a problem if used during boot).
+  Thanks to Steve Kostecke <steve _at_ debian.org> and the helpful
+  debian people who file bug reports.
+
+RELEASE 4.05
+
+1 November 2002
++ dk.po translation from angel _at_ port-it.net
++ Fixed a segfault in parse_logos when extraneous empty lines are in
+  the config_logos file (thanks to Tony Whitmore <whitmore _at_ tony.com>)
++ Added new "core.logo" file for core linux, thanks to Tony Whitmore
+  again.
++ Remove some old debian specific stuff from manpage, thanks to
+  Steve Kostecke <steve _at_ debian.org>
+
+RELEASE 4.06
+
+30 December 2002
++ Brazilian Portuguese translation from Anderson Rocha <xcommanderx _at_ bol.com.br>
+
+23 January 2003
++ Added sourcemage logos and a script to make adding comments to ansis
+  easier from Chris Brien <spam-me-and-die _at_ negativezero.plus.com>
++ Added TW Chinese translation from <rickz _at_ bbs.sayya.org>
++ Hopefully finally release linux_logo 4.07
+
+RELEASE 4.07
+
+11 July 2003
++ Six years of linux_logo!
++ Patches sent in by Eugene Paskevich <eugene _at_ raptor.kiev.ua>
+  fix typo of i18n, add Ukranian and Russian po files, and add
+  simplified logo.
+
+14 March 2004
++ Update to work on all known cpuinfos.  Fix a lot of Opteron/P4 chips, etc.
++ Added minimal FreeBSD support
+
+RELEASE 4.08
+
+17 March 2004
++ Update the spec-file
++ Go through http://packages.qa.debian.org/l/linuxlogo.html
+  buglist.
++ Have "parse_logos" handle \r 's in files better.  Took the debian
+  patch even though I am not sure if it is the best solution.
++ Added norwegian bokmaal translation from 
+  Per Oeyvind Karlsen [iso-8859-1] <peroyvind _at_ linux-mandrake.com>
+
+RELEASE 4.09
+
+30 March 2005
++ Sorry for lack of updates
++ Fixed to compile with gcc 4.0.  Mainly removing a lot of stupid
+  needless (char *) casts.  Thanks to Colin Charles <colin _at_ fedoraproject.org>
+  for pointing this out.
++ Updated Italian translation from Marco Colombo <m.colombo _at_ ed.ac.uk>  
++ New Mandrakelinux logo from <peroyvind _at_ linux-mandrake.com>
++ BSD updates from Metgod <metty _at_ hfactorx.org>
++ released linux_logo-4.10
+
+RELEASE 4.10
+
+29 April 2005
++ Embarrassing bug where it always prints out "Trying to open
+  $HOME/.linux_logo".  Has that bug really been there for over a year
+  with no one noticing?
+  (Thanks to Matthias Saou <matthias _at_ rpmforge.net> for noticing)
+  
+RELEASE 4.11
+  
+30 April 2005
++ OK, above bug wasn't as old as feared.  It was a problem with some
+  debugging output inserted and then forgotten about in the year 
+  between 4.09 and 4.10.  I've reverted the behavior and it should
+  work a bit better.
++ Made it so even if you don't have i18n installed on your machine,
+  linux_logo will still successfully Make the whole way through
+  (though with lots of warnings in the po directory).
+
+RELEASE 4.12
+
+15 December 2005
++ Some changes to libsysinfo
++ Looked at http://bugs.debian.org/cgi-bin/pkgreport.cgi?pkg=linuxlogo
+  Fixed what bugs I could
++ Merged some of a spell-check fix (didn't fix the Changelog).
+  Bug  #321971  
+
+RELEASE 4.13
+
+20 July 2006
++ Rename "dk.po" to "da.po".  Thanks to Piotr Engelking 
+  <inkerman42 _at_ gmail.com>
++ Fix spelling problems in CHANGES file (from debian via maintainer
+  Khalid El Fathi <invent _at_ edena-fr.org> ).
++ Inspires by a patch from debian, make it so the configuration file can
+  handle empty lines, comments, and empty files.
++ Apply patch to make the -L command line argument override the other types
+  of configuration.  (from debian via maintainer Khalid El Fathi
+  <invent _at_ edena-fr.org> ).
++ Fix off by one error in allocation of the size of string ~/linux_logo.c
+
+RELEASE 4.14
+
+4 January 2007
++ Support sparc64 on Linux (we obtained some Niagara systems ;) )
++ Add CPU and Memory support for Solaris.
++ Added a swedish translation forwarded along by the debian maintainer.
+
+RELEASE 4.15
+
+27 January 2007
++ Realized I had forgotten to add the swedish translation to the makefile.
+  Fixed.
++ Updated slackware logo from Gabor Bak <baboka _at_ slackware.hu>
+
+RELEASE 4.16
+
+28 January 2007
++ Update to install locale info in /usr/share/locale, not /usr/lib/locale
+  for FHS compliance.(  from Per Øyvind Karlsen <pkarlsen _at_ mandriva.com> )
++ Add mandriva logo (from Per Øyvind Karlsen <pkarlsen _at_ mandriva.com> )
++ Took a look at the linux_logo code and realized it is in sorry shape,
+  started re-writing a lot, we're going to have a 5.0 release... -vmw
++ Audit the source code, removing a bunch of potential buffer overflows -vmw
++ Remove extraneous and dead code -vmw
++ Got rid of the horrific vmw_string.c file, an artifact from a much
+  earlier and naive stage of my programming career... -vmw
+  
+26 June 2007
++ I was busy, neglected linux_logo for a while.  Some e-mails came in
+  so back to work.
++ Re-wrote some of the helper functions to be thread safe.
+  General cleanups.  I've learned a lot in 10 years ;)
++ Include ubuntu logo by Damian OiDnus Slimak <oidnus _at_ gmail.com>
++ Fix so the Playstation 3 reports right number of CPUs from 
+  KolbjÃ¸rn Barmen" <epost _at_ kolla.no>
++ Need to fix Core Duo handling (urgh Intel, could you make the
+  cpuinfo even uglier?).  Thanks to Matthias Saou <matthias _at_ rpmforge.net>
+  for sending me a few cpuinfo files to work with.
+  
+28 June 2007
++ Re-wrote command-line and option handling to not use getopt().
+  getopt() is handy, but it was a hack to use it for file-based
+  option handling as well.
+
+3 July 2007
++ Added avr32 support
++ Made some fake "configure" files that make an attempt at auto-configuring
++ Ensured cross-compiler support works.
+
+4 July 2007
++ Work on i18n support.  It seems to work tolerably well again.
++ More testing of the build scripts.  It works on Irix, Solaris, FreeBSD and
+  Linux.
+
+5 July 2007
++ Turn back on logo-selection support.  Make sure all the logos
+  I distribute display properly.
++ Ran ispell on the documentation.
++ Added support for choosing logo by names.  Updated all the logos
+  to have names.
+
+RELEASE 5.0
+
+9 July 2007
++ Clean up all the trailing whitespace in linux_logo.c
++ Another security pass.  Removed all of the potential buffer
+  overruns I could find.  *NOTE* on a properly configured system
+  these overruns should not be a security threat, though they
+  could lead to segfaults in linux_logo if you pass strings > 8192
+  bytes in size to the program.
+  Thanks to Secunia Research for bugging me on this issue.
+
+RELEASE 5.01
+
+30 July 2007
++ Minor bugfix in libsysinfo with how errors in parse_string() were
+  reported.  An invalid /proc/cpuinfo file could potentially cause
+  a segfault.  Found the problem with the zzuf fuzz tool.
+
+31 July 2007
++ Run some more extensive fuzzing.
++ Update the man page.  It referred to problems with the "new" Pentium II
+  processors on 2.0.x kernels.
++ Fix another minor bug found by fuzzing where we try to print a NULL
+  string if we have a really invalid logo.
+
+RELEASE 5.02
+
+3 January 2008
++ Minor fix so AMD Phenom displays properly.
+
+RELEASE 5.03
+
+12 December 2008
++ Go through the test_proc files I have, re-test and fix
+  all of x86 and x86_64.
+  
+RELEASE 5.04
+
+5 June 2009
++ Some libsysinfo changes.  Quick summary:
+  Add frv, microblaze and m32r support.
+  Fix some old Cyric chips.
+  Fix Sheeva Plug/ARM.
+  
+RELEASE 5.05
+
+12 June 2009
++ Fixed Ukranian translation to be uk.mo instead of ua.mo
+  (from pld-linux patches)
++ Update translations a bit, this is mainly fixes to the Polish.
+  (from pld-linux patches)
++ Add pld-linux logo (from pld-linux patches)
++ Added sme linux logo (from sme linux patches)
+
+1 July 2009
++ Fix ./configure to not have issues if /bin/sh is dash.
+  This was debian bug #483851.  I wish they would report
+  things like this upstream.
++ Fix bugs where you couldn't override the /etc/linux_logo.conf
+  file with -D or -L # or -L random_xy options.  Also fixed
+  really minor read-past-end-of-buffer issue with random_xy
+  handling.
+  This should fix debian bugs #510813 and #504717 so hopefully
+  they can re-add "-L debian" to their /etc/linux_logo.conf
+  and thus debian systems will stop showing the BSD daemon
+  by default.
+
+RELEASE 5.06
+
+5 January 2010
++ Some changes to CPU detection
+
+RELEASE 5.07
+
+15 February 2010
++ Update to handle ARM beagleboard cpuinfo
++ Merge sh fix from downstream debian
++ Fix C7-M support
++ Add support for Vortex and SiS x86 chips
++ Add support for Nehalem processors
+
+RELEASE 5.08
+
+16 February 2010
++ Fix problem where exponential notation appeared on a machine
+  with more than 100GB of RAM (yes, I have access to such a machine)
+
+RELEASE 5.09
+
+19 February 2010
++ Enable Power6 support
++ Clean up memory detection, bump libsysinfo number.  I hope
+  this doesn't break anything.
++ Re-fix the memory printing code.
+
+RELEASE 5.10
+
+14 November 2010
++ Fix for the po Makefile to work with gmake 2.82.
+  Patch provided by Edward Sheldrake <ejsheldrake _at_ gmail.com>
++ Fix some warnings from newer gcc.  Obvious fixes, hopefully
+  didn't break anything.
++ Test against some new cpuinfo files.
++ Some very minor libsysinfo changes for Xeon cpus.
+
+RELEASE 5.11

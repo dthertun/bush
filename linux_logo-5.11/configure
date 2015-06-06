@@ -1,0 +1,110 @@
+#!/bin/sh
+
+#  This is not a real autoconf configure script.
+#  I will not ship a configure script that is larger than
+#    the generated linux_logo executable.
+#  This is a simple shell script that gathers the info linux_logo
+#    needs, and should be compatible enough.
+#  Tested on Linux, Irix, Solaris and FreeBSD
+#  - vmw
+
+
+usage() {
+   echo "Usage: $0 [ --prefix=PATH ]"
+   exit 1
+}
+
+while [ $# -gt 0  ]
+do
+   case "${1%=*}" in
+      -h|--help) usage;;
+      --prefix) PREFIX="${1#*=}";;
+   esac
+   shift
+done
+
+if [ -z "$ARCH" ]; then
+   ARCH=`uname -m`
+fi
+
+OS=`uname`
+INSTALL=`which install`
+
+if [ -z "$PREFIX" ]; then
+   PREFIX=/usr/local
+fi
+
+which xgettext
+XGETTEXT_MISSING=$?
+
+if [ $XGETTEXT_MISSING -eq 0 ]; then
+   XGETTEXT=xgettext
+fi
+
+which gcc
+GCC_MISSING=$?
+
+if [ $GCC_MISSING -eq 1 ]; then
+   which cc
+   CC_MISSING=$?
+   if [ $CC_MISSING -eq 1 ]; then
+      echo "C compiler not found!"
+   else
+      CC=cc   
+   fi
+else
+   CC=gcc
+fi
+
+LIBSYSINFO=libsysinfo-0.2.2
+
+LDFLAGS=""
+
+if [ $CC = gcc ]; then
+   CFLAGS="-Wall -O2"
+else
+   CFLAGS="-O2"
+fi   
+
+$CROSS$CC $CFLAGS -c intl_test.c 
+INTL_MISSING=$?
+
+
+
+echo
+echo "CONFIGURING LINUX_LOGO"
+echo "  Detected Architecture:     "$ARCH
+echo "  Detected Operating System: "$OS
+echo "  Install prefix:  "$PREFIX
+echo "  Install program: "$INSTALL
+echo "  xgettext:   "$XGETTEXT
+if [ $INTL_MISSING -ne 0 ]; then
+   echo "  libintl.h not found, disabling i18n support"
+   USE_I18N=0
+else
+   USE_I18N=1
+fi
+
+echo "  libsysinfo: "$LIBSYSINFO
+echo "  C Compiler : "$CC
+echo "  CFLAGS     : "$CFLAGS
+
+echo "CC=$CC" > Makefile.default
+echo "ARCH=$ARCH" >> Makefile.default
+echo "OS=$OS" >> Makefile.default
+echo "PREFIX=$PREFIX" >> Makefile.default
+echo "INSTALL=$INSTALL" >> Makefile.default
+echo "CFLAGS=$CFLAGS" >> Makefile.default
+echo "LIBSYSINFO=$LIBSYSINFO" >> Makefile.default
+echo "LDFLAGS=$LDFLAGS" >> Makefile.default
+echo "XGETTEXT=$XGETTEXT" >> Makefile.default
+echo "USE_I18N=$USE_I18N" >> Makefile.default
+echo "CONFIGURE_RAN=1" >> Makefile.default
+
+echo
+cd $LIBSYSINFO && ./configure
+echo
+echo "If cross compiling set the CROSS and ARCH variables"
+echo 
+echo "Done configuring, run 'make'"
+echo

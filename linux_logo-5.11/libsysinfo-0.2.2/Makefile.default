@@ -1,0 +1,9 @@
+CC=gcc
+AR=ar
+ARCH=x86_64
+OS=Linux
+PREFIX=/usr/local
+INSTALL=/usr/bin/install
+CFLAGS=-Wall -O2
+LIBSYSINFO_INCLUDE=-I..
+LFLAGS=

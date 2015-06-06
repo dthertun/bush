@@ -1,0 +1,46 @@
+# AIX logo
+# by Thomas Grewe
+# Ascii logo by Javier Fernandez-Sanguino Peña <jfs@computer.org>  
+
+SYSINFO_POSITION right
+  
+DESCRIPTION_STRING AIX Logo
+NAME aix
+
+BEGIN_LOGO
+[40m                         [3C[47;30mAAAA[2CIIIIII[1CXX[2CXX[40m
+[40m                         [2C[47;30mAA[2CAA[3CII[4CXXXX[40m
+[40;37m  [41m()[40m  [41m()[40m  [41m()[40m  [41m()[40m  [41m()[40m  [41m()[40m [2C[47;30mAAAAAA[3CII[5CXX[40m
+[40m                         [2C[47;30mAA[2CAA[3CII[4CXXXX[40m
+[40;37m  [41m()[40m  [41m()[40m  [41m()[40m  [41m()[40m  [41m()[40m  [44m()[40m [2C[47;30mAA[2CAA[1CIIIIII[1CXX[2CXX[40m
+[40m                         [40m
+[40;37m  [42m()[40m  [42m()[40m  [42m()[40m  [42m()[40m  [44m()[40m  [44m()[40m [40;37m
+[40m                         [40m
+[40;37m  [43m()[40m  [43m()[40m  [43m()[40m  [44m()[40m  [44m()[40m  [44m()[40m [40;37m
+[40m                         [40m
+[40;37m  [46m()[40m  [46m()[40m  [44m()[40m  [44m()[40m  [44m()[40m  [44m()[40m [40;37m
+[40m                         [40m
+[40;37m  [45m()[40m  [44m()[40m  [44m()[40m  [44m()[40m  [44m()[40m  [44m()[40m [40;37m
+[40m                         [40m
+[40m                         [40m
+[40m                         [40m
+END_LOGO
+
+BEGIN_ASCII_LOGO
+                             AAAA  IIIIII XX  XX
+                            AA  AA   II    XXXX
+   ()  ()  ()  ()  ()  ()   AAAAAA   II     XX
+                            AA  AA   II    XXXX
+   ()  ()  ()  ()  ()  ()   AA  AA IIIIII XX  XX
+                          
+   ()  ()  ()  ()  ()  () 
+                          
+   ()  ()  ()  ()  ()  () 
+                          
+   ()  ()  ()  ()  ()  () 
+                          
+   ()  ()  ()  ()  ()  () 
+                          
+                          
+                          
+END_ASCII_LOGO

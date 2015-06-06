@@ -1,0 +1,74 @@
+#!/bin/sh
+
+#  This is not a real autoconf configure script.
+#  I will not ship a configure script that is larger than
+#    the generated linux_logo executable.
+#  This is a simple shell script that gathers the info linux_logo
+#    needs, and should be compatible enough.
+#  - vmw
+
+if [ -z "$ARCH" ]; then
+   ARCH=`uname -m`
+fi   
+   
+OS=`uname`
+PREFIX=/usr/local
+INSTALL=`which install`
+
+which gcc
+GCC_MISSING=$?
+
+if [ $GCC_MISSING -eq 1 ]; then
+   which cc
+   CC_MISSING=$?
+   if [ $CC_MISSING -eq 1 ]; then
+      echo "C compiler not found!"
+   else
+      CC=cc   
+   fi
+else
+   CC=gcc
+fi
+
+which ar
+AR_MISSING=$?
+
+if [ $AR_MISSING -eq 0 ]; then
+   AR=ar
+fi
+
+
+if [ $OS = SunOS ]; then
+   AR=/usr/ccs/bin/ar
+fi
+   
+if [ $CC = gcc ]; then
+   CFLAGS="-Wall -O2"
+else
+   CFLAGS="-O2"
+fi   
+
+LIBSYSINFO_INCLUDE="-I.."
+LFLAGS=""
+
+
+echo
+echo "CONFIGURING LIBSYSINFO"
+echo "  Detected Architecture:     "$ARCH
+echo "  Detected Operating System: "$OS
+#echo "  Install prefix:  "$PREFIX
+#echo "  Install program: "$INSTALL
+echo "  C Compiler : "$CC
+echo "  AR         : "$AR
+echo "  CFLAGS     : "$CFLAGS
+echo
+
+echo "CC=$CC" > Makefile.default
+echo "AR=$AR" >> Makefile.default
+echo "ARCH=$ARCH" >> Makefile.default
+echo "OS=$OS" >> Makefile.default
+echo "PREFIX=$PREFIX" >> Makefile.default
+echo "INSTALL=$INSTALL" >> Makefile.default
+echo "CFLAGS=$CFLAGS" >> Makefile.default
+echo "LIBSYSINFO_INCLUDE=$LIBSYSINFO_INCLUDE" >> Makefile.default
+echo "LFLAGS=$LFLAGS" >> Makefile.default
